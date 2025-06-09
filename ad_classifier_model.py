@@ -5,7 +5,7 @@ import joblib
 
 # Load and clean data
 column_names = [f'feature_{i}' for i in range(1558)] + ['label']
-df = pd.read_csv('C:/Users/HP/Desktop/Ad_Classifier_App/ad.data', header=None, names=column_names, na_values=['?', '   ?'])
+df = pd.read_csv('ad.data', header=None, names=column_names, na_values=['?', '   ?'])
 df.dropna(inplace=True)
 df['label'] = df['label'].apply(lambda x: 1 if x == 'ad.' else 0)
 df[df.columns[:-1]] = df[df.columns[:-1]].astype(float)
